@@ -11,4 +11,8 @@ export class StudentsService {
     return this.students
   }
 
+  getStudent(id: string): StudentResponseDTO{
+    return this.students.find(student => student.id === id)
+  }
+
 }

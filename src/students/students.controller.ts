@@ -17,6 +17,7 @@ class StudentsController {
 
   @Get('/:studentId')
   getStudent(@Param("studentId") studentId: string){
+    return this.studentService.getStudent(studentId)
     //return 'Getting Student ' + studentId
   }
 
