@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { students } from "../db";
-import { StudentResponseDTO } from "./student.dto";
+import { CreateStudentDTO, StudentResponseDTO } from "./student.dto";
+import { v4 as uuid} from "uuid"
 
 
 @Injectable()
@@ -13,6 +14,15 @@ export class StudentsService {
 
   getStudent(id: string): StudentResponseDTO{
     return this.students.find(student => student.id === id)
+  }
+
+  createStudent(payload: CreateStudentDTO): StudentResponseDTO{
+    let newStudent = {
+      id: uuid(),
+      ...payload
+    }
+    students.push(newStudent)
+    return newStudent
   }
 
 }

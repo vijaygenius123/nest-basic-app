@@ -23,6 +23,7 @@ class StudentsController {
 
   @Post('')
   createStudent(@Body() body: CreateStudentDTO){
+    return this.studentService.createStudent(body)
     //return 'Create Student'
   }
 
