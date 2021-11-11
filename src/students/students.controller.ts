@@ -29,7 +29,7 @@ class StudentsController {
 
   @Put('/:studentId')
   updateStudent(@Param() studentId: string, @Body() body){
-    return 'Update Student'
+    return this.studentService.updateStudent(body, studentId)
   }
 
 
